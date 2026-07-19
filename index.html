@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Treats by KJ — Home-Baked Cookies</title>
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-brand">
+    <img class="brand-logo" src="assets/logo.jpg" alt="Sweet Treats by KJ logo">
+    <span class="brand-name">SWEET TREATS <em>by KJ</em></span>
+  </div>
+  <nav class="nav-links">
+    <a href="#drop">Menu</a>
+    <a href="#craft">The Craft</a>
+    <a href="#notify">Notify Me</a>
+  </nav>
+  <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<!-- ============ HERO (scroll-scrub + 3D parallax) ============ -->
+<section class="hero" id="hero">
+  <div class="hero-sticky">
+    <video id="heroVideo" class="hero-video" muted playsinline preload="auto" poster="assets/lookbook.png" src="assets/hero.mp4"></video>
+    <div class="hero-grain"></div>
+
+    <!-- floating 3D cookie layer -->
+    <div class="float-stage" id="floatStage" aria-hidden="true">
+      <img class="coin" data-depth="0.9"  style="--x:8%;  --y:16%; --s:110px; --r:-14deg" src="assets/photo-pistachio.jpg" alt="">
+      <img class="coin" data-depth="0.55" style="--x:84%; --y:12%; --s:150px; --r:10deg"  src="assets/photo-swirl.jpg" alt="">
+      <img class="coin" data-depth="1.3"  style="--x:78%; --y:66%; --s:95px;  --r:18deg"  src="assets/photo-jammie.jpg" alt="">
+      <img class="coin" data-depth="0.7"  style="--x:12%; --y:70%; --s:130px; --r:-8deg"  src="assets/photo-bueno.jpg" alt="">
+      <img class="coin" data-depth="1.1"  style="--x:50%; --y:8%;  --s:85px;  --r:24deg"  src="assets/photo-oreo.jpg" alt="">
+      <img class="coin" data-depth="1.6"  style="--x:38%; --y:78%; --s:75px;  --r:-20deg" src="assets/photo-whitechoc.jpg" alt="">
+    </div>
+
+    <div class="hero-content" id="heroContent">
+      <p class="hero-kicker">FRESHLY HOME-BAKED · BEXLEYHEATH</p>
+      <h1 class="hero-title">SWEET&nbsp;TREATS<br><span class="accent">HOME-BAKED GOODNESS</span></h1>
+      <p class="hero-sub">Six signature cookies, hand-rolled in small batches and boxed warm by Karlie.</p>
+      <a class="hero-cta" href="#drop">SHOP COOKIES ↓</a>
+    </div>
+    <div class="scroll-hint">SCROLL TO SCRUB ▾</div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>THE PISTACHIO ONE ✦ WHITE CHOC CHUNK ✦ THE CHOC SWIRL ✦ THE JAMMIE ONE ✦ THE BUENO ONE ✦ COOKIES &amp; CREAM ✦ </span>
+    <span>THE PISTACHIO ONE ✦ WHITE CHOC CHUNK ✦ THE CHOC SWIRL ✦ THE JAMMIE ONE ✦ THE BUENO ONE ✦ COOKIES &amp; CREAM ✦ </span>
+  </div>
+</div>
+
+<!-- ============ PRODUCT GRID (3D fly-in + tilt) ============ -->
+<section class="drop" id="drop">
+  <div class="section-head reveal">
+    <h2>THE&nbsp;MENU</h2>
+    <p>Hover a cookie to see it spin. Thick-baked, hand-finished, boxed warm.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Card 1 -->
+    <article class="card reveal tilt" data-product="pistachio">
+      <div class="card-inner">
+        <div class="card-media">
+          <img class="card-photo" src="assets/photo-pistachio.jpg" alt="The Pistachio One cookie">
+          <video class="spin-video" muted loop playsinline preload="metadata" src="assets/spin-pistachio.mp4"></video>
+          <span class="card-tag">Nº 01</span>
+        </div>
+        <div class="card-body">
+          <div class="card-titlerow">
+            <h3>THE PISTACHIO ONE</h3>
+            <span class="price" data-base="4.50">£4.50</span>
+          </div>
+          <p class="card-desc">Pistachio-cream drizzle, white chocolate chunks, crushed pistachio crown.</p>
+          <div class="sizes" role="group" aria-label="Box size">
+            <button class="size" data-mult="1" data-label="Single">Single</button>
+            <button class="size" data-mult="3.6" data-label="Box of 4">Box of 4</button>
+            <button class="size soldout" data-mult="5" data-label="Box of 6" disabled>Box of 6 · SOLD OUT</button>
+          </div>
+          <button class="add-btn">ADD TO BOX</button>
+          <button class="notify-link" data-flavor="The Pistachio One">Sold out? Get notified ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card reveal tilt" data-product="whitechoc">
+      <div class="card-inner">
+        <div class="card-media">
+          <img class="card-photo" src="assets/photo-whitechoc.jpg" alt="White Choc Chunk cookie">
+          <video class="spin-video" muted loop playsinline preload="metadata" src="assets/spin-whitechoc.mp4"></video>
+          <span class="card-tag">Nº 02</span>
+        </div>
+        <div class="card-body">
+          <div class="card-titlerow">
+            <h3>WHITE CHOC CHUNK</h3>
+            <span class="price" data-base="4.00">£4.00</span>
+          </div>
+          <p class="card-desc">Golden NYC-style dough, molten white chocolate slab, vanilla drizzle.</p>
+          <div class="sizes" role="group" aria-label="Box size">
+            <button class="size" data-mult="1" data-label="Single">Single</button>
+            <button class="size" data-mult="3.6" data-label="Box of 4">Box of 4</button>
+            <button class="size" data-mult="5" data-label="Box of 6">Box of 6</button>
+          </div>
+          <button class="add-btn">ADD TO BOX</button>
+          <button class="notify-link" data-flavor="White Choc Chunk">Sold out? Get notified ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card reveal tilt" data-product="swirl">
+      <div class="card-inner">
+        <div class="card-media">
+          <img class="card-photo" src="assets/photo-swirl.jpg" alt="The Choc Swirl cookie">
+          <video class="spin-video" muted loop playsinline preload="metadata" src="assets/spin-swirl.mp4"></video>
+          <span class="card-tag">Nº 03</span>
+        </div>
+        <div class="card-body">
+          <div class="card-titlerow">
+            <h3>THE CHOC SWIRL</h3>
+            <span class="price" data-base="5.00">£5.00</span>
+          </div>
+          <p class="card-desc">Double-chocolate rolled dough, milk-choc ribbon, white chocolate shavings.</p>
+          <div class="sizes" role="group" aria-label="Box size">
+            <button class="size" data-mult="1" data-label="Single">Single</button>
+            <button class="size soldout" data-mult="3.6" data-label="Box of 4" disabled>Box of 4 · SOLD OUT</button>
+            <button class="size" data-mult="5" data-label="Box of 6">Box of 6</button>
+          </div>
+          <button class="add-btn">ADD TO BOX</button>
+          <button class="notify-link" data-flavor="The Choc Swirl">Sold out? Get notified ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="card reveal tilt" data-product="jammie">
+      <div class="card-inner">
+        <div class="card-media">
+          <img class="card-photo" src="assets/photo-jammie.jpg" alt="The Jammie One cookie">
+          <span class="card-tag">Nº 04</span>
+        </div>
+        <div class="card-body">
+          <div class="card-titlerow">
+            <h3>THE JAMMIE ONE</h3>
+            <span class="price" data-base="4.50">£4.50</span>
+          </div>
+          <p class="card-desc">Raspberry-ripple dough, white choc drizzle, mini Jammie Dodgers on top.</p>
+          <div class="sizes" role="group" aria-label="Box size">
+            <button class="size" data-mult="1" data-label="Single">Single</button>
+            <button class="size" data-mult="3.6" data-label="Box of 4">Box of 4</button>
+            <button class="size" data-mult="5" data-label="Box of 6">Box of 6</button>
+          </div>
+          <button class="add-btn">ADD TO BOX</button>
+          <button class="notify-link" data-flavor="The Jammie One">Sold out? Get notified ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="card reveal tilt" data-product="bueno">
+      <div class="card-inner">
+        <div class="card-media">
+          <img class="card-photo" src="assets/photo-bueno.jpg" alt="The Bueno One cookie">
+          <span class="card-tag">Nº 05</span>
+        </div>
+        <div class="card-body">
+          <div class="card-titlerow">
+            <h3>THE BUENO ONE</h3>
+            <span class="price" data-base="5.00">£5.00</span>
+          </div>
+          <p class="card-desc">Hazelnut-cream centre, milk &amp; white drizzle, whole Kinder Bueno bar.</p>
+          <div class="sizes" role="group" aria-label="Box size">
+            <button class="size" data-mult="1" data-label="Single">Single</button>
+            <button class="size" data-mult="3.6" data-label="Box of 4">Box of 4</button>
+            <button class="size soldout" data-mult="5" data-label="Box of 6" disabled>Box of 6 · SOLD OUT</button>
+          </div>
+          <button class="add-btn">ADD TO BOX</button>
+          <button class="notify-link" data-flavor="The Bueno One">Sold out? Get notified ↗</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="card reveal tilt" data-product="oreo">
+      <div class="card-inner">
+        <div class="card-media">
+          <img class="card-photo" src="assets/photo-oreo.jpg" alt="Cookies and Cream cookie">
+          <span class="card-tag">Nº 06</span>
+        </div>
+        <div class="card-body">
+          <div class="card-titlerow">
+            <h3>COOKIES &amp; CREAM</h3>
+            <span class="price" data-base="4.50">£4.50</span>
+          </div>
+          <p class="card-desc">Vanilla dough loaded with Oreo crumble and a cream-cheese drizzle.</p>
+          <div class="sizes" role="group" aria-label="Box size">
+            <button class="size" data-mult="1" data-label="Single">Single</button>
+            <button class="size" data-mult="3.6" data-label="Box of 4">Box of 4</button>
+            <button class="size" data-mult="5" data-label="Box of 6">Box of 6</button>
+          </div>
+          <button class="add-btn">ADD TO BOX</button>
+          <button class="notify-link" data-flavor="Cookies &amp; Cream">Sold out? Get notified ↗</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ 3D COOKIE COIN DIVIDER ============ -->
+<div class="coin-divider" aria-hidden="true">
+  <div class="coin-3d">
+    <img class="coin-face front" src="assets/photo-swirl.jpg" alt="">
+    <img class="coin-face back" src="assets/photo-pistachio.jpg" alt="">
+  </div>
+  <p class="coin-caption">HOME-BAKED GOODNESS ✦ SMALL BATCH ✦ BEXLEYHEATH</p>
+</div>
+
+<!-- ============ CRAFT (pinned macro + 3D panels) ============ -->
+<section class="craft" id="craft">
+  <div class="craft-sticky">
+    <video class="craft-video" muted loop playsinline autoplay preload="metadata" src="assets/macro.mp4"></video>
+    <div class="craft-vignette"></div>
+    <div class="craft-panels">
+      <div class="craft-panel" data-step="0">
+        <h2>BAKED&nbsp;HEAVY.</h2>
+        <p>Thick centres, caramelised edges. Every cookie is hand-rolled the same night it's delivered.</p>
+      </div>
+      <div class="craft-panel" data-step="1">
+        <h2>FINISHED&nbsp;CLEAN.</h2>
+        <p>Real chocolate bars, hand-chopped — never chips from a bag. Drizzled one at a time.</p>
+      </div>
+      <div class="craft-panel" data-step="2">
+        <h2>BOXED&nbsp;WARM.</h2>
+        <p>Small batches only, delivered fresh across Bexleyheath.</p>
+        <img class="craft-box" src="assets/photo-box.jpg" alt="A fresh box of classic and double chocolate cookies">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTIFY ============ -->
+<section class="notify" id="notify">
+  <img class="notify-logo reveal" src="assets/logo.jpg" alt="Sweet Treats by KJ — Home-Baked Goodness">
+  <h2 class="reveal">JOIN&nbsp;THE&nbsp;COOKIE&nbsp;LIST</h2>
+  <p class="reveal">New flavours, restocks and bake days — straight to your inbox.</p>
+  <form class="notify-form reveal" id="notifyForm">
+    <input type="email" id="notifyEmail" placeholder="you@email.com" required aria-label="Email address">
+    <button type="submit">NOTIFY ME</button>
+  </form>
+  <p class="notify-ok" id="notifyOk">You're on the list. 🍪 Fresh drops land in your inbox first.</p>
+</section>
+
+<footer class="footer">
+  <span>SWEET TREATS BY KJ · BEXLEYHEATH</span>
+  <span>@sweet.treats.kj</span>
+  <span>HOME-BAKED GOODNESS — demo site</span>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="drawer-scrim" id="drawerScrim"></div>
+<aside class="drawer" id="drawer" aria-label="Your box">
+  <div class="drawer-head">
+    <h3>YOUR&nbsp;BOX</h3>
+    <button class="drawer-close" id="drawerClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-items" id="drawerItems">
+    <p class="drawer-empty">Your box is empty. Sad, really.</p>
+  </div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>TOTAL</span><span id="drawerTotal">£0.00</span></div>
+    <button class="checkout-btn" id="checkoutBtn">CHECKOUT — DEMO</button>
+    <p class="drawer-note">Demo checkout. Real orders via @sweet.treats.kj DMs.</p>
+  </div>
+</aside>
+
+<!-- ============ NOTIFY MODAL (per-flavor) ============ -->
+<div class="modal-scrim" id="modalScrim">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <h3 id="modalTitle">GET NOTIFIED</h3>
+    <p id="modalSub">We'll email you the second it restocks.</p>
+    <form id="modalForm">
+      <input type="email" id="modalEmail" placeholder="you@email.com" required aria-label="Email address">
+      <button type="submit">NOTIFY ME</button>
+    </form>
+    <p class="notify-ok" id="modalOk">Done — you'll be first to know. 🍪</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
