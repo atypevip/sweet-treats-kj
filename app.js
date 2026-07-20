@@ -407,10 +407,10 @@ document.getElementById('placeOrderBtn').addEventListener('click', () => {
   document.getElementById('orderRef').textContent = 'ORDER ' + ref;
   document.getElementById('orderSummary').textContent =
     `${cart.length} box${cart.length > 1 ? 'es' : ''} · ${gbp(cartTotal())} · ${fulfilMode === 'delivery' ? 'Delivery' : 'Collection'} on ${document.getElementById('coDate').value} for ${document.getElementById('coName').value}.`;
-  document.getElementById('waFallback').href = waUrl;
 
-  // Open WhatsApp with the pre-filled order — synchronous inside the click so it isn't popup-blocked.
-  if (WHATSAPP_READY) window.open(waUrl, '_blank');
+  // Real in-place links (not window.open) so they work inside the Instagram/Facebook in-app browser too.
+  document.getElementById('waSend').href = waUrl;
+  document.getElementById('waFallback').href = waUrl;
 
   cart.length = 0;
   renderCart();

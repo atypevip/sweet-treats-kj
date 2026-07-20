@@ -318,9 +318,11 @@ body {
 .order-success img { width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--cocoa); margin-bottom: 16px; }
 .order-success h4 { font-family: var(--font-display); font-size: 26px; margin-bottom: 10px; }
 .order-success p { font-size: 14px; color: var(--cocoa-soft); margin-bottom: 12px; }
-.order-success .checkout-btn { margin-top: 10px; }
+a.checkout-btn { display: block; text-decoration: none; text-align: center; box-sizing: border-box; }
+.wa-send { margin-top: 8px; }
+.success-done { width: 100%; margin-top: 12px; }
 .wa-link {
-  display: inline-block; margin: 2px 0 8px;
+  display: inline-block; margin: 12px 0 2px;
   font-size: 13px; font-weight: 700; color: var(--blue-deep);
   text-decoration: underline;
 }
