@@ -102,11 +102,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 document.querySelectorAll('.card, .catalog-card').forEach(card => {
   const inner = card.querySelector('.card-inner');
-  const video = card.querySelector('.spin-video');
-  if (video) {
-    card.addEventListener('mouseenter', () => { video.play().catch(() => {}); });
-    card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
-  }
   card.addEventListener('pointermove', e => {
     const r = card.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width - 0.5;
