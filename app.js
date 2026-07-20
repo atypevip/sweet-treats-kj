@@ -1,5 +1,10 @@
 /* ============ SWEET TREATS BY KJ — box builder build ============ */
 
+/* Karlie's WhatsApp number — full international format, digits only.
+   A UK mobile 07123 456789 becomes 447123456789 (drop the leading 0, prefix 44). */
+const WHATSAPP_NUMBER = '447958558523';                 // Karlie's WhatsApp (07958 558523)
+const WHATSAPP_READY = !/^4400000/.test(WHATSAPP_NUMBER);
+
 /* ---------- Menu data (from the printed menu) ---------- */
 const MENU = {
   classic: {
@@ -358,6 +363,33 @@ document.querySelectorAll('.fulfil-opt').forEach(btn => btn.addEventListener('cl
     : 'Collection from Bexleyheath — exact address shared when your box is confirmed.';
 }));
 
+function buildOrderMessage(ref) {
+  const g = id => document.getElementById(id).value.trim();
+  const L = [];
+  L.push('Hi Karlie! I’d like to place an order with Sweet Treats by KJ 🍪');
+  L.push('');
+  L.push(`*Order ${ref}*`);
+  L.push('');
+  cart.forEach(b => {
+    L.push(`📦 Box of ${b.size} — ${b.catalog} (${gbp(b.price)})`);
+    b.lines.forEach(line => L.push(`• ${line}`));
+    L.push('');
+  });
+  L.push(`*Total: ${gbp(cartTotal())}*`);
+  L.push('');
+  L.push(fulfilMode === 'delivery' ? '🚗 Delivery' : '🏠 Collection');
+  L.push(`Name: ${g('coName')}`);
+  L.push(`Phone: ${g('coPhone')}`);
+  if (g('coEmail')) L.push(`Email: ${g('coEmail')}`);
+  L.push(`Preferred date: ${g('coDate')}`);
+  if (fulfilMode === 'delivery') {
+    L.push(`Address: ${g('coAddress')}`);
+    L.push(`Postcode: ${g('coPostcode')}`);
+  }
+  if (g('coNotes')) L.push(`Notes: ${g('coNotes')}`);
+  return L.join('\n');
+}
+
 document.getElementById('placeOrderBtn').addEventListener('click', () => {
   const form = document.getElementById('checkoutForm');
   const need = [document.getElementById('coName'), document.getElementById('coPhone'), document.getElementById('coDate')];
@@ -370,9 +402,16 @@ document.getElementById('placeOrderBtn').addEventListener('click', () => {
     return;
   }
   const ref = 'ST-' + String(Math.floor(1000 + Math.random() * 9000));
+  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildOrderMessage(ref))}`;
+
   document.getElementById('orderRef').textContent = 'ORDER ' + ref;
   document.getElementById('orderSummary').textContent =
     `${cart.length} box${cart.length > 1 ? 'es' : ''} · ${gbp(cartTotal())} · ${fulfilMode === 'delivery' ? 'Delivery' : 'Collection'} on ${document.getElementById('coDate').value} for ${document.getElementById('coName').value}.`;
+  document.getElementById('waFallback').href = waUrl;
+
+  // Open WhatsApp with the pre-filled order — synchronous inside the click so it isn't popup-blocked.
+  if (WHATSAPP_READY) window.open(waUrl, '_blank');
+
   cart.length = 0;
   renderCart();
   form.reset();

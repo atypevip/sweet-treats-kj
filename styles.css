@@ -319,6 +319,11 @@ body {
 .order-success h4 { font-family: var(--font-display); font-size: 26px; margin-bottom: 10px; }
 .order-success p { font-size: 14px; color: var(--cocoa-soft); margin-bottom: 12px; }
 .order-success .checkout-btn { margin-top: 10px; }
+.wa-link {
+  display: inline-block; margin: 2px 0 8px;
+  font-size: 13px; font-weight: 700; color: var(--blue-deep);
+  text-decoration: underline;
+}
 
 /* ============ PRODUCT GRID ============ */
 .drop { padding: 90px 5vw 120px; }
