@@ -103,12 +103,20 @@ body {
   position: absolute; left: var(--x); top: var(--y);
   width: var(--s); height: var(--s);
   border-radius: 50%; object-fit: cover;
-  border: 3px solid rgba(253,249,241,.85);
-  box-shadow: 0 22px 44px rgba(0,0,0,.45);
+  border: 4px solid rgba(253,249,241,.92);
+  box-shadow: 0 28px 56px rgba(0,0,0,.5), 0 0 0 8px rgba(127,182,217,.14);
   transform: rotate(var(--r));
   will-change: transform;
   animation: bobble 5s ease-in-out infinite;
 }
+/* little logo-style hearts drifting in the hero */
+.float-stage::before, .float-stage::after {
+  content: '♥'; position: absolute; color: var(--blue); opacity: .5;
+  font-size: 30px; animation: bobble 6s ease-in-out infinite;
+  text-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+.float-stage::before { left: 24%; top: 22%; transform: rotate(-14deg); }
+.float-stage::after  { left: 70%; top: 76%; font-size: 22px; transform: rotate(12deg); animation-delay: -3s; }
 .coin:nth-child(2n) { animation-duration: 6.5s; animation-delay: -2s; }
 .coin:nth-child(3n) { animation-duration: 7.5s; animation-delay: -4s; }
 @keyframes bobble {
@@ -122,17 +130,37 @@ body {
   transform-style: preserve-3d;
   will-change: transform, opacity;
 }
+.hero-logo {
+  width: 128px; height: 128px; border-radius: 50%;
+  border: 4px solid var(--flour);
+  box-shadow: 0 18px 50px rgba(0,0,0,.5), 0 0 0 10px rgba(127,182,217,.18);
+  margin-bottom: 22px;
+  animation: bobble 6s ease-in-out infinite;
+}
 .hero-kicker {
   font-size: 13px; letter-spacing: .38em; font-weight: 600;
-  color: var(--blue); margin-bottom: 18px;
+  color: var(--tan); margin-top: 18px;
 }
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(56px, 11vw, 150px);
-  line-height: .92; letter-spacing: .01em;
+  font-size: clamp(52px, 9.5vw, 130px);
+  line-height: .95; letter-spacing: .01em;
   text-shadow: 0 8px 40px rgba(0,0,0,.45);
 }
-.hero-title .accent { color: var(--blue); }
+.hero-title .accent-script {
+  display: block;
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(30px, 5vw, 64px);
+  line-height: 1.4;
+  color: var(--blue);
+  text-transform: none; letter-spacing: 0;
+}
+/* scalloped edge, like the logo badge border */
+.hero-scallop {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 22px; z-index: 4;
+  background: radial-gradient(circle at 20px -8px, transparent 20px, var(--blue) 21px);
+  background-size: 40px 22px; background-position: center bottom; background-repeat: repeat-x;
+}
 .hero-sub { margin-top: 22px; font-size: 16px; opacity: .9; max-width: 460px; }
 .hero-cta {
   margin-top: 28px; text-decoration: none;
@@ -565,6 +593,7 @@ body {
   .brand-name { font-size: 15px; }
   .hero { height: 150vh; }               /* light pinned hero on phones */
   .hero-sub { font-size: 14px; }
+  .hero-logo { width: 96px; height: 96px; margin-bottom: 16px; }
   .craft { height: 280vh; }
   .craft-panel { padding: 30px 22px; }
   .build, .drop { padding-left: 5vw; padding-right: 5vw; }
@@ -585,9 +614,12 @@ body {
   .fulfil-opt { font-size: 13px; padding: 11px 8px; }
 }
 @media (max-width: 480px) {
-  /* keep the real-cookie coins on phones — smaller and fewer so text stays clear */
-  .coin { width: calc(var(--s) * .55); height: calc(var(--s) * .55); }
+  /* keep the real-cookie coins on phones — smaller, fewer, and clear of the text */
+  .coin { width: calc(var(--s) * .48); height: calc(var(--s) * .48); }
   .coin:nth-child(5), .coin:nth-child(6) { display: none; }
+  .coin:nth-child(3) { left: 76%; top: 76%; }
+  .coin:nth-child(4) { left: -5%; top: 78%; }
+  .float-stage::after { top: 66%; }
   .hero-cta { font-size: 16px; padding: 12px 30px; }
   .footer { flex-direction: column; text-align: center; }
 }
