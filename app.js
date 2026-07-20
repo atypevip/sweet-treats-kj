@@ -100,8 +100,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.18 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+/* 3D tilt only for real hover devices — on touch it fights with scrolling */
+const canTilt = matchMedia('(hover: hover) and (pointer: fine)').matches;
 document.querySelectorAll('.card, .catalog-card').forEach(card => {
   const inner = card.querySelector('.card-inner');
+  if (!canTilt) return;
   card.addEventListener('pointermove', e => {
     const r = card.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width - 0.5;

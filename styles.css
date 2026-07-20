@@ -552,8 +552,36 @@ body {
 }
 @media (max-width: 720px) {
   .nav-links { display: none; }
-  .craft-panel { padding: 32px 26px; }
+  .nav { padding: 10px 16px; }
+  .brand-name { font-size: 15px; }
+  .hero { height: 260vh; }               /* lighter scrub on phones */
+  .hero-sub { font-size: 14px; }
+  .craft { height: 280vh; }
+  .craft-panel { padding: 30px 22px; }
+  .build, .drop { padding-left: 5vw; padding-right: 5vw; }
+  .catalog-grid, .grid { gap: 24px; }
+  .card-titlerow h3 { font-size: 20px; }
+  .marquee-track { font-size: 16px; }
+  .coin-3d { width: 150px; height: 150px; }
+  /* builder modal on small screens */
+  .builder { width: 100%; max-height: 96vh; border-radius: 18px; }
+  .builder-head { padding: 16px 18px 12px; }
+  .builder-head h3 { font-size: 21px; }
+  .builder-body { padding: 16px 18px; }
+  .builder-foot { padding: 12px 18px; flex-wrap: wrap; }
+  .builder-nav { width: 100%; justify-content: space-between; }
+  .builder-nav .add-btn, .ghost-btn { padding: 12px 16px; font-size: 14px; }
+  .chip { padding: 10px 14px; font-size: 13px; }
+  .mix-row { padding: 10px 12px; }
+  .fulfil-opt { font-size: 13px; padding: 11px 8px; }
 }
 @media (max-width: 480px) {
   .coin { display: none; }
+  .hero-cta { font-size: 16px; padding: 12px 30px; }
+  .footer { flex-direction: column; text-align: center; }
+}
+/* prevent iOS zoom-on-focus: keep inputs at 16px on touch screens */
+@media (pointer: coarse) {
+  .checkout-form input, .checkout-form textarea,
+  .notify-form input, #modalForm input { font-size: 16px; }
 }
