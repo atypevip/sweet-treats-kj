@@ -365,7 +365,7 @@ document.querySelectorAll('.fulfil-opt').forEach(btn => btn.addEventListener('cl
   document.querySelectorAll('.fulfil-opt').forEach(b => b.classList.toggle('active', b === btn));
   document.getElementById('deliveryFields').hidden = fulfilMode !== 'delivery';
   document.getElementById('fulfilNote').textContent = fulfilMode === 'delivery'
-    ? 'Local delivery within a 10-mile radius of Bexleyheath, subject to availability.'
+    ? 'Local delivery within a 3-mile radius of Bexleyheath, subject to availability.'
     : 'Collection from Bexleyheath — exact address shared when your box is confirmed.';
 }));
 
