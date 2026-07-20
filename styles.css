@@ -72,19 +72,25 @@ body {
 }
 
 /* ============ HERO ============ */
-.hero { height: 380vh; position: relative; }
+.hero { height: 180vh; position: relative; }
 .hero-sticky {
   position: sticky; top: 0; height: 100vh; overflow: hidden;
   background: var(--cocoa);
   perspective: 900px;
 }
-.hero-video {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; opacity: .92;
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255,214,150,.16) 0 2.5%, transparent 3.5%),
+    radial-gradient(circle at 78% 16%, rgba(255,214,150,.2) 0 2%, transparent 3%),
+    radial-gradient(circle at 64% 74%, rgba(255,214,150,.12) 0 3%, transparent 4%),
+    radial-gradient(circle at 30% 82%, rgba(255,214,150,.14) 0 2%, transparent 3%),
+    radial-gradient(circle at 90% 60%, rgba(255,214,150,.1) 0 2.5%, transparent 3.5%),
+    radial-gradient(ellipse 120% 90% at 50% 30%, #4a3624 0%, var(--cocoa) 62%, #201509 100%);
 }
 .hero-grain {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(46,32,21,.55) 0%, rgba(46,32,21,.08) 38%, rgba(46,32,21,.65) 100%);
+  background: linear-gradient(180deg, rgba(46,32,21,.4) 0%, rgba(46,32,21,0) 38%, rgba(46,32,21,.55) 100%);
   pointer-events: none;
 }
 
@@ -395,7 +401,11 @@ body {
   position: sticky; top: 0; height: 100vh; overflow: hidden;
   perspective: 1000px;
 }
-.craft-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.craft-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  animation: craft-zoom 26s ease-in-out infinite alternate;
+}
+@keyframes craft-zoom { from { transform: scale(1); } to { transform: scale(1.14); } }
 .craft-vignette {
   position: absolute; inset: 0;
   background: radial-gradient(ellipse at center, transparent 30%, rgba(46,32,21,.72) 100%);
@@ -547,14 +557,13 @@ body {
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
-  .coin { width: calc(var(--s) * .62); height: calc(var(--s) * .62); }
-  .coin:nth-child(5) { display: none; }
+  .coin { width: calc(var(--s) * .68); height: calc(var(--s) * .68); }
 }
 @media (max-width: 720px) {
   .nav-links { display: none; }
   .nav { padding: 10px 16px; }
   .brand-name { font-size: 15px; }
-  .hero { height: 260vh; }               /* lighter scrub on phones */
+  .hero { height: 150vh; }               /* light pinned hero on phones */
   .hero-sub { font-size: 14px; }
   .craft { height: 280vh; }
   .craft-panel { padding: 30px 22px; }
@@ -576,7 +585,9 @@ body {
   .fulfil-opt { font-size: 13px; padding: 11px 8px; }
 }
 @media (max-width: 480px) {
-  .coin { display: none; }
+  /* keep the real-cookie coins on phones — smaller and fewer so text stays clear */
+  .coin { width: calc(var(--s) * .55); height: calc(var(--s) * .55); }
+  .coin:nth-child(5), .coin:nth-child(6) { display: none; }
   .hero-cta { font-size: 16px; padding: 12px 30px; }
   .footer { flex-direction: column; text-align: center; }
 }

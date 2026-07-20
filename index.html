@@ -34,16 +34,16 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
   <div class="hero-sticky">
-    <video id="heroVideo" class="hero-video" muted playsinline preload="auto" poster="assets/lookbook.png" src="assets/hero.mp4"></video>
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-grain"></div>
 
     <div class="float-stage" id="floatStage" aria-hidden="true">
-      <img class="coin" data-depth="0.9"  style="--x:8%;  --y:16%; --s:110px; --r:-14deg" src="assets/photo-pistachio.jpg" alt="">
-      <img class="coin" data-depth="0.55" style="--x:84%; --y:12%; --s:150px; --r:10deg"  src="assets/photo-swirl.jpg" alt="">
-      <img class="coin" data-depth="1.3"  style="--x:78%; --y:66%; --s:95px;  --r:18deg"  src="assets/photo-biscoff.jpg" alt="">
-      <img class="coin" data-depth="0.7"  style="--x:12%; --y:70%; --s:130px; --r:-8deg"  src="assets/photo-bueno.jpg" alt="">
-      <img class="coin" data-depth="1.1"  style="--x:50%; --y:8%;  --s:85px;  --r:24deg"  src="assets/photo-oreo.jpg" alt="">
-      <img class="coin" data-depth="1.6"  style="--x:38%; --y:78%; --s:75px;  --r:-20deg" src="assets/photo-whitechoc.jpg" alt="">
+      <img class="coin" data-depth="0.9"  style="--x:6%;  --y:14%; --s:120px; --r:-14deg" src="assets/photo-pistachio.jpg" alt="">
+      <img class="coin" data-depth="0.55" style="--x:82%; --y:10%; --s:160px; --r:10deg"  src="assets/photo-swirl.jpg" alt="">
+      <img class="coin" data-depth="1.3"  style="--x:76%; --y:64%; --s:110px; --r:18deg"  src="assets/photo-biscoff.jpg" alt="">
+      <img class="coin" data-depth="0.7"  style="--x:10%; --y:68%; --s:140px; --r:-8deg"  src="assets/photo-bueno.jpg" alt="">
+      <img class="coin" data-depth="1.1"  style="--x:48%; --y:6%;  --s:90px;  --r:24deg"  src="assets/photo-oreo.jpg" alt="">
+      <img class="coin" data-depth="1.6"  style="--x:36%; --y:80%; --s:80px;  --r:-20deg" src="assets/photo-whitechoc.jpg" alt="">
     </div>
 
     <div class="hero-content" id="heroContent">
@@ -52,7 +52,7 @@
       <p class="hero-sub">Classic, Signature or Create-Your-Own — pick your box, fill it your way, collected warm.</p>
       <a class="hero-cta" href="#build">BUILD YOUR BOX ↓</a>
     </div>
-    <div class="scroll-hint">SCROLL TO SCRUB ▾</div>
+    <div class="scroll-hint">SCROLL ▾</div>
   </div>
 </section>
 
@@ -75,7 +75,7 @@
     <article class="catalog-card reveal tilt" data-catalog="classic">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-box.jpg" alt="A box of classic milk and triple chocolate cookies">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-box.jpg" alt="A box of classic milk and triple chocolate cookies">
           <span class="card-tag">CLASSIC</span>
         </div>
         <div class="card-body">
@@ -90,7 +90,7 @@
     <article class="catalog-card reveal tilt" data-catalog="signature">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-pistachio.jpg" alt="Pistachio 'The Nutty One' signature cookie">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-pistachio.jpg" alt="Pistachio 'The Nutty One' signature cookie">
           <span class="card-tag">SIGNATURE</span>
         </div>
         <div class="card-body">
@@ -105,7 +105,7 @@
     <article class="catalog-card reveal tilt" data-catalog="cyo">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-chocchip.jpg" alt="Custom chocolate chip cookie with milk chocolate drizzle">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-chocchip.jpg" alt="Custom chocolate chip cookie with milk chocolate drizzle">
           <span class="card-tag">CREATE YOUR OWN</span>
         </div>
         <div class="card-body">
@@ -133,7 +133,7 @@
     <article class="card reveal tilt">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-pistachio.jpg" alt="Pistachio 'The Nutty One' cookie">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-pistachio.jpg" alt="Pistachio 'The Nutty One' cookie">
           <span class="card-tag">Nº 01</span>
         </div>
         <div class="card-body">
@@ -147,7 +147,7 @@
     <article class="card reveal tilt">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-whitechoc.jpg" alt="Milky Bar Magic cookie">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-whitechoc.jpg" alt="Milky Bar Magic cookie">
           <span class="card-tag">Nº 02</span>
         </div>
         <div class="card-body">
@@ -161,7 +161,7 @@
     <article class="card reveal tilt">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-swirl.jpg" alt="Triple Chocolate Fudge cookie">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-swirl.jpg" alt="Triple Chocolate Fudge cookie">
           <span class="card-tag">Nº 03</span>
         </div>
         <div class="card-body">
@@ -175,7 +175,7 @@
     <article class="card reveal tilt">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-bueno.jpg" alt="Kinder Bueno Heaven cookie">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-bueno.jpg" alt="Kinder Bueno Heaven cookie">
           <span class="card-tag">Nº 04</span>
         </div>
         <div class="card-body">
@@ -189,7 +189,7 @@
     <article class="card reveal tilt">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-oreo.jpg" alt="Cookies and Cream cookie">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-oreo.jpg" alt="Cookies and Cream cookie">
           <span class="card-tag">Nº 05</span>
         </div>
         <div class="card-body">
@@ -203,7 +203,7 @@
     <article class="card reveal tilt">
       <div class="card-inner">
         <div class="card-media">
-          <img class="card-photo" src="assets/photo-biscoff.jpg" alt="Biscoff Bliss cookie with Lotus biscuit on top">
+          <img class="card-photo" loading="lazy" decoding="async" src="assets/photo-biscoff.jpg" alt="Biscoff Bliss cookie with Lotus biscuit on top">
           <span class="card-tag">Nº 06</span>
         </div>
         <div class="card-body">
@@ -229,7 +229,7 @@
 <!-- ============ CRAFT ============ -->
 <section class="craft" id="craft">
   <div class="craft-sticky">
-    <video class="craft-video" muted loop playsinline autoplay preload="metadata" src="assets/macro.mp4"></video>
+    <img class="craft-photo" src="assets/photo-box.jpg" alt="" loading="lazy" decoding="async">
     <div class="craft-vignette"></div>
     <div class="craft-panels">
       <div class="craft-panel" data-step="0">
@@ -243,7 +243,7 @@
       <div class="craft-panel" data-step="2">
         <h2>BOXED&nbsp;WARM.</h2>
         <p>Collection as standard, local delivery within 3 miles when available.</p>
-        <img class="craft-box" src="assets/photo-box.jpg" alt="A fresh box of classic and double chocolate cookies">
+        <img class="craft-box" loading="lazy" decoding="async" src="assets/photo-box.jpg" alt="A fresh box of classic and double chocolate cookies">
       </div>
     </div>
   </div>
@@ -251,7 +251,7 @@
 
 <!-- ============ NOTIFY ============ -->
 <section class="notify" id="notify">
-  <img class="notify-logo reveal" src="assets/logo.jpg" alt="Sweet Treats by KJ — Home-Baked Goodness">
+  <img class="notify-logo reveal" loading="lazy" decoding="async" src="assets/logo.jpg" alt="Sweet Treats by KJ — Home-Baked Goodness">
   <h2 class="reveal">JOIN&nbsp;THE&nbsp;COOKIE&nbsp;LIST</h2>
   <p class="reveal">New flavours, restocks and bake days — straight to your inbox.</p>
   <form class="notify-form reveal" id="notifyForm">

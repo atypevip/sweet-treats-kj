@@ -39,16 +39,14 @@ const MENU = {
 
 const gbp = n => '£' + n.toFixed(2);
 
-/* ---------- Scroll engine: scrub + parallax + progress + craft steps ---------- */
+/* ---------- Scroll engine: parallax + progress + craft steps ---------- */
 const hero = document.getElementById('hero');
-const heroVideo = document.getElementById('heroVideo');
 const heroContent = document.getElementById('heroContent');
 const coins = [...document.querySelectorAll('.coin')];
 const progressBar = document.getElementById('progress');
 const craft = document.getElementById('craft');
 const craftPanels = [...document.querySelectorAll('.craft-panel')];
 
-let targetTime = 0;
 let mouseX = 0, mouseY = 0;
 
 window.addEventListener('pointermove', e => {
@@ -60,19 +58,17 @@ function applyScroll() {
   const max = document.documentElement.scrollHeight - innerHeight;
   progressBar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
 
-  const heroScrollable = hero.offsetHeight - innerHeight;
+  const heroScrollable = Math.max(1, hero.offsetHeight - innerHeight);
   const p = Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / heroScrollable));
-  if (heroVideo.duration) targetTime = p * (heroVideo.duration - 0.05);
-  if (document.hidden && heroVideo.duration) heroVideo.currentTime = targetTime;
 
-  const z = p * 260;
-  const fade = p < 0.75 ? 1 : Math.max(0, 1 - (p - 0.75) / 0.22);
+  const z = p * 200;
+  const fade = p < 0.7 ? 1 : Math.max(0, 1 - (p - 0.7) / 0.26);
   heroContent.style.transform = `translateZ(${z}px)`;
   heroContent.style.opacity = fade;
 
   coins.forEach(c => {
     const depth = parseFloat(c.dataset.depth);
-    const ty = -p * 420 * depth;
+    const ty = -p * 300 * depth;
     const tx = mouseX * 26 * depth;
     const my = mouseY * 18 * depth;
     c.style.transform = `translate3d(${tx}px, ${ty + my}px, 0) rotate(var(--r))`;
@@ -86,13 +82,6 @@ function applyScroll() {
 }
 window.addEventListener('scroll', applyScroll, { passive: true });
 applyScroll();
-
-(function raf() {
-  if (heroVideo.duration && Math.abs(heroVideo.currentTime - targetTime) > 0.02) {
-    heroVideo.currentTime += (targetTime - heroVideo.currentTime) * 0.22;
-  }
-  requestAnimationFrame(raf);
-})();
 
 /* ---------- Reveal + tilt + hover videos ---------- */
 const observer = new IntersectionObserver(entries => {
