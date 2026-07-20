@@ -35,9 +35,9 @@ const MENU = {
     sizes: { 2: 10, 4: 20, 6: 30, 8: 40 },
     note: 'One sauce & one topping included · extras +£1 each',
     bases: ['Milk Chocolate', 'White Chocolate', 'Triple Chocolate'],
-    centres: ['None', 'Biscoff Cream', 'Hazelnut Cream', 'Oreo Cream', 'Milky Bar Cream', 'Nutella', 'Pistachio Cream'],
-    sauces: ['Nutella', 'Biscoff', 'Pistachio', 'Cookies & Cream', 'Kinder', 'Milky Bar', 'Dark Chocolate'],
-    toppings: ['Milk Chocolate Chunks', 'White Chocolate Chunks', 'Biscoff Pieces', 'Oreo Pieces', 'Brownie Pieces', 'Pistachio Nuts'],
+    centres: ['None', 'Biscoff Cream', 'Cookies & Cream', 'Milky Bar Cream', 'Nutella', 'Pistachio Cream'],
+    sauces: ['Nutella', 'Biscoff', 'Pistachio', 'Kinder', 'Milky Bar'],
+    toppings: ['Milk Chocolate Chunks', 'White Chocolate Chunks', 'Biscoff Pieces', 'Oreo Pieces', 'Pistachio Nuts'],
     extraCost: 1,
   },
 };
