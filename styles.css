@@ -623,7 +623,7 @@ a.checkout-btn { display: block; text-decoration: none; text-align: center; box-
 @media (max-width: 480px) {
   /* keep the real-cookie coins on phones — smaller, fewer, and clear of the text */
   .coin { width: calc(var(--s) * .48); height: calc(var(--s) * .48); }
-  .coin:nth-child(5), .coin:nth-child(6) { display: none; }
+  .coin:nth-child(5), .coin:nth-child(6), .coin:nth-child(7) { display: none; }
   .coin:nth-child(3) { left: 76%; top: 76%; }
   .coin:nth-child(4) { left: -5%; top: 78%; }
   .float-stage::after { top: 66%; }
