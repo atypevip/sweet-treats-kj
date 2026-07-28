@@ -28,6 +28,7 @@ const MENU = {
       { id: 'milkybar', name: 'Milky Bar Magic',        desc: 'Milky Bar cream centre' },
       { id: 'fudge',    name: 'Triple Chocolate Fudge', desc: 'Nutella centre' },
       { id: 'nutty',    name: "Pistachio 'The Nutty One'", desc: 'Pistachio cream centre' },
+      { id: 'jammy',    name: 'Strawberry Cheesecake Jammy Dodger', desc: 'Strawberry cheesecake filling' },
     ],
   },
   cyo: {
